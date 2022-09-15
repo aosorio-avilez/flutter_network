@@ -11,4 +11,13 @@ void main() {
     expect(errorCode, error.errorCode);
     expect(message, error.message);
   });
+
+  test('api rest error props correctly', () {
+    const errorCode = 'NOT_FOUND';
+    const message = 'Resource not found';
+
+    const error = ApiRestError(errorCode, message);
+
+    expect(error.props.length, 2);
+  });
 }
