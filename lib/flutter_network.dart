@@ -8,6 +8,7 @@ import 'package:riverpod/riverpod.dart';
 export 'src/api_rest_client.dart';
 export 'src/api_rest_client_mock.dart';
 export 'src/api_rest_result.dart';
+export 'src/api_rest_error.dart';
 
 final apiUrlProvider = Provider<String>((ref) {
   throw UnimplementedError();
