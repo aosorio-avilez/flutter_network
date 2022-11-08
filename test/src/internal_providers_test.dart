@@ -6,14 +6,6 @@ import 'package:riverpod/riverpod.dart';
 
 const _apiUrl = 'https://google.com';
 
-class MockInterceptor extends ApiRestInterceptor {
-  @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    response.headers.add('test', 'test');
-    super.onResponse(response, handler);
-  }
-}
-
 void main() {
   test('dio provider return a valid instance', () {
     final container = ProviderContainer(overrides: [
@@ -28,7 +20,14 @@ void main() {
   test('dio provider should apply interceptors', () async {
     final container = ProviderContainer(overrides: [
       apiUrlProvider.overrideWithValue(_apiUrl),
-      interceptorListProvider.overrideWithValue([MockInterceptor()])
+      interceptorListProvider.overrideWithValue([
+        ApiRestInterceptor(
+          onResponse: (response, handler) {
+            response.headers.add('test', 'test');
+            handler.next(response);
+          },
+        )
+      ])
     ]);
 
     final dio = container.read(dioProvider);
