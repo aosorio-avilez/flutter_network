@@ -1,6 +1,6 @@
 name: flutter_network
 description: Flutter package that provide a API Rest Client injection easily through Riverpod.
-version: 0.0.2
+version: 0.0.3
 homepage:
 
 environment:

@@ -16,7 +16,7 @@ void main() {
   });
 
   test(
-      'api rest client provider without implemente api url provider throw UnimplementedError',
+      'api rest client provider without implement api url provider throw UnimplementedError',
       () {
     final container = ProviderContainer();
 
