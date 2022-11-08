@@ -4,7 +4,9 @@ import 'package:riverpod/riverpod.dart';
 
 final dioProvider = Provider<Dio>((ref) {
   final url = ref.watch(apiUrlProvider);
+  final interceptors = ref.watch(interceptorListProvider);
+
   return Dio(
     BaseOptions(baseUrl: url),
-  );
+  )..interceptors.addAll(interceptors);
 });
