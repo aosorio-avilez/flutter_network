@@ -11,3 +11,7 @@ Export missing files
 ## 0.0.3
 
 Added ability to add interceptors
+
+## 0.0.3+1
+
+Improve interceptor to avoid have to implement dio to create interceptors
